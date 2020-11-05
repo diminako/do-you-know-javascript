@@ -2,3 +2,29 @@ body {
     display: block;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#answersDiv {
+    height: 400px;
+}
+
+#questionDiv {
+    height: 40px;
+}
+
+#correctDiv {
+    height: 40px;
+}
