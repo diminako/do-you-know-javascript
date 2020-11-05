@@ -13,6 +13,33 @@ var secondsRemainQuestion = 60
 var correctA = 0
 var incorrectA = 0
 
+function quizTimer() {
+    var quizInterval = setInterval(function () {
+        secondsRemainQuiz--;
+        countDownQuizId.textContent = secondsRemainQuiz;
+
+        if (secondsRemainQuiz === 0) {
+            clearInterval(quizInterval)
+            questionSect.textContent = "DID NOT FINISH IN TIME!"
+            rightWrong.textContent = "DID NOT FINISH IN TIME!"
+            //ADD MORE CONTENT
+        }
+    }, 1000)
+}
+quizTimer();
+
+function questionTimer() {
+    var questionInterval = setInterval(function () {
+        secondsRemainQuestion--;
+        countDownId.textContent = secondsRemainQuestion;
+
+        if (secondsRemainQuestion === 0) {
+            clearInterval(questionInterval);
+            // FILL IN CONTENT HERE
+        }
+    }, 1000)
+}
+questionTimer();
 
 var questObjArr = [
     {
@@ -36,31 +63,29 @@ var questObjArr = [
         correctAnswer: 2
     },
     {
+        question: "What is the outcome of NaN + 'NaN'?",
+        answers: ["NaN - Not a Number.", "NaNaNaNaNaNaNaNaNaNa BatNaN!!!", "'NaNNaN - a string.'"],
+        correctAnswer: 2
+    },
+    {
+        question: "What is the outcome of ",
+        answers: ["A fancier version of Java that uses scripts.", "A replacement for HTML and CSS.", "An Object oriented programming language."],
+        correctAnswer: 2
+    },
+    {
         question: "What is the outcome of ",
         answers: ["A fancier version of Java that uses scripts.", "A replacement for HTML and CSS.", "An Object oriented programming language."],
         correctAnswer: 2
     },
 ]
 
-
-
-
-// for (i = 0; i < questObjArr[i].answers.length; ++i) {
-//     listItem = document.createElement('button');
-//     listItem.innerHTML = questObjArr[i].answers[i];
-//     listParent.appendChild(listItem);
-// }
-
-
-
-
+//  ERASE AFTER RUNNING CORRECTLY.  THIS IS FOR TESTING.
 function clicker() {
-    i++
-    questionSect.textContent = questObjArr[i].question
 
-    rightWrong.textContent = "not yet";
+    rightWrong.textContent = "TESTING TESTING";
 
     for (i = 0; i < questObjArr[i].answers.length; ++i) {
+        questionSect.textContent = questObjArr[i].question
         listItem = document.createElement('button');
         listItem.innerHTML = questObjArr[i].answers[i];
         listParent.appendChild(listItem);
@@ -69,45 +94,6 @@ function clicker() {
 }
 
 testBtn.addEventListener("click", clicker);
-
-
-
-
-
-
-
-
-
-
-function quizTimer() {
-    var quizInterval = setInterval(function () {
-        secondsRemainQuiz--;
-        countDownQuizId.textContent = secondsRemainQuiz;
-
-        if (secondsRemainQuiz === 0) {
-            clearInterval(quizInterval)
-            questionSect.textContent = "DID NOT FINISH IN TIME!"
-            rightWrong.textContent = "DID NOT FINISH IN TIME!"
-        }
-    }, 1000)
-}
-quizTimer();
-
-
-function questionTimer() {
-    var questionInterval = setInterval(function () {
-        secondsRemainQuestion--;
-        countDownId.textContent = secondsRemainQuestion;
-
-        if (secondsRemainQuestion === 0) {
-            clearInterval(questionInterval);
-
-
-
-        }
-    }, 1000)
-}
-questionTimer();
 
 
 
