@@ -44,37 +44,65 @@ questionTimer();
 var questObjArr = [
     {
         question: "What is JavaScript?",
-        answers: ["A fancier version of Java that uses scripts.", "An Object oriented programming language.", "A replacement for HTML and CSS.",],
+        answers: [
+            "A fancier version of Java that uses scripts.",
+            "An Object oriented programming language.",
+            "A replacement for HTML and CSS.",
+        ],
         correctAnswer: 1
     },
     {
         question: "What is the DOM?",
-        answers: ["Document Object Model.", "Dominate Outer Module.", "Dimitri Only Matters.",],
+        answers: [
+            "Document Object Model.",
+            "Dominate Outer Module.",
+            "Dimitri Only Matters."
+        ],
         correctAnswer: 0
     },
     {
         question: "What method do you use when you have an event listener inside a form?",
-        answers: ["event.preventDefault();", "event.Splice();", "event.exitMethod();",],
+        answers: [
+            "event.preventDefault();",
+            "event.Splice();",
+            "event.exitMethod();"
+        ],
         correctAnswer: 0
     },
     {
         question: "What is JavaScript?",
-        answers: ["A fancier version of Java that uses scripts.", "A replacement for HTML and CSS.", "An Object oriented programming language."],
+        answers: [
+            "A fancier version of Java that uses scripts.",
+            "A replacement for HTML and CSS.",
+            "An Object oriented programming language."
+        ],
         correctAnswer: 2
     },
     {
         question: "What is the outcome of NaN + 'NaN'?",
-        answers: ["NaN - Not a Number.", "NaNaNaNaNaNaNaNaNaNa BatNaN!!!", "'NaNNaN - a string.'"],
+        answers: [
+            "NaN - Not a Number.",
+            "NaNaNaNaNaNaNaNaNaNa BatNaN!!!",
+            "'NaNNaN'- a string."
+        ],
         correctAnswer: 2
     },
     {
-        question: "What is the outcome of ",
-        answers: ["A fancier version of Java that uses scripts.", "A replacement for HTML and CSS.", "An Object oriented programming language."],
-        correctAnswer: 2
+        question: "What is an Array?",
+        answers: [
+            "A data structure.",
+            "The animal that killed Stever irwin.",
+            "An action that can be performed on objects."
+        ],
+        correctAnswer: 0
     },
     {
         question: "What is the outcome of ",
-        answers: ["A fancier version of Java that uses scripts.", "A replacement for HTML and CSS.", "An Object oriented programming language."],
+        answers: [
+            "A fancier version of Java that uses scripts.",
+            "A replacement for HTML and CSS.",
+            "An Object oriented programming language."
+        ],
         correctAnswer: 2
     },
 ]
@@ -94,13 +122,3 @@ function clicker() {
 }
 
 testBtn.addEventListener("click", clicker);
-
-
-
-
-
-
-
-
-
-
