@@ -152,6 +152,44 @@ function inputFormShow() {
     finalScore.textContent = secondsRemainQuiz;
 }
 
+var initialsInput = document.getElementById("initialsInput")
+formControl.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    var currentLocal = JSON.parse(localStorage.getItem("highScoreStore"))
+    if (!currentLocal) {
+        currentLocal = []
+    }
+    var initials = initialsInput.value
+    currentLocal.push(initials + ": " + secondsRemainQuiz)
+    localStorage.setItem("highScoreStore", JSON.stringify(currentLocal))
+
+    window.location = "./highscore.html";
+})
+
+
+// function clickBtn(event) {
+//     event.preventDefault();
+//     console.log("clicked")
+
+//     var currentLocal = JSON.parse(localStorage.getItem("testing"))
+
+//     console.log(typeof currentLocal)
+
+//     if (!currentLocal) {
+
+//         currentLocal = []
+//     }
+
+//     //  Change this to the input value on the form.
+
+
+//     currentLocal.push(randNum)
+
+//     localStorage.setItem("testing", JSON.stringify(currentLocal))
+
+// }
+
 //  have a form for users initials
 //  submit button to save initials to variable for local storage
 //  store the data as an objects
