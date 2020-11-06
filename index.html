@@ -13,7 +13,7 @@
 <body>
 
 
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-light">
         <button class="highScoreCl" id="highScoreId">High Score</button>
         <div class="inline">
             <h3>Do You Know JavaScript?!</h3>
@@ -40,7 +40,7 @@
             </div>
             <div class="row m-3" id="answersDiv">
                 <div class="col-md-12">
-                    <div class="row justify-content-center answersSect" id="listParent">
+                    <div class="row py-3 justify-content-center answersSect" id="listParent">
 
                     </div>
                 </div>
@@ -57,9 +57,21 @@
 
 
 
+    <!-- Hidden form the will be  -->
+    <form class="hidden" id="formControl">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Enter Your Name for the Leaderboards!</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
 
-
-
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+    </form>
 
 
 

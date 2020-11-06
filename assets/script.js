@@ -6,6 +6,7 @@ var testBtn = document.getElementById("testBtn");
 var countDownQuizId = document.getElementById("countDownQuizId")
 var countDownId = document.getElementById("countDownId")
 var listParent = document.querySelector("#listParent")
+var formControl = document.getElementById("formControl")
 var secondsRemainQuiz = 100
 var questionNum = 0
 var quizInterval
@@ -90,6 +91,7 @@ function clicker() {
         listItem = document.createElement('button');
         listItem.innerHTML = questObjArr[questionNum].answers[i];
         listItem.setAttribute("id", i);
+        listItem.setAttribute("class", "button-primary m-2 liBtns")
         listParent.appendChild(listItem);
     }
 }
@@ -100,7 +102,7 @@ function quizTimer() {
         countDownQuizId.textContent = secondsRemainQuiz;
         if (secondsRemainQuiz === 0) {
             outOfTime();
-        } else if (questionNum === questObjArr.length - 1) {
+        } else if (questionNum === questObjArr.length) {
             clearInterval(quizInterval)
             endGame();
         }
@@ -115,9 +117,6 @@ function answerInput(event) {
             secondsRemainQuiz -= 10;
             rightWrong.textContent = "WRONG!!!";
         }
-        // if (questObjArr[questionNum].correctAnswer === parseInt(event.target.id)) {
-        //     rightWrong.textContent = "Correct!!! Keep it up!";
-        // }
         if (questObjArr.length - 1 !== questionNum) {
             questionNum++;
             clicker();
@@ -135,7 +134,8 @@ function endGame() {
     questionSect.textContent = "Congrats! You had " + secondsRemainQuiz + " seconds left!"
     rightWrong.textContent = "Congrats! You had " + secondsRemainQuiz + " seconds left!"
     listParent.prepend(listItem);
-    listParent.textContent = "Congrats! You had " + secondsRemainQuiz + " seconds left!"
+    listParent.textContent = ""
+    inputFormShow();
 }
 //  Stop the timer
 function outOfTime() {
@@ -144,6 +144,10 @@ function outOfTime() {
     rightWrong.textContent = "DID NOT FINISH IN TIME!"
     listParent.prepend(listItem);
     listParent.textContent = "DID NOT FINISH IN TIME!  You don't even qualify for a score."
+}
+
+function inputFormShow() {
+    formControl.setAttribute("class", "displaying")
 }
 
 //  have a form for users initials

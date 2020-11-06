@@ -1,24 +1,24 @@
 body {
     display: block;
+    background-color: rgb(154, 201, 243);
 }
 
+nav {
+    background-color: aliceblue;
+}
 
+.hidden {
+    display: none;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
+.displaying {
+    display: block;
+    margin-top: -300px;
+    margin-left: 500px;
+}
 
 #answersDiv {
-    height: 400px;
+    height: 300px;
 }
 
 #questionDiv {
