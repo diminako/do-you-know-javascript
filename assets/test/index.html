@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="clickBtn()">TEST</button>
+    <script>
+        function clickBtn() {
+            console.log("clicked")
+            // add random num to array 
+            var currentLocal = JSON.parse(localStorage.getItem("testing"))
+            console.log(typeof currentLocal)
+            if (!currentLocal || typeof currentLocal !== "array") {
+                console.log(here)
+                currentLocal = []
+            }
+            var randNum = Math.floor(Math.random() * 100)
+            currentLocal.push(randNum)
+
+            localStorage.setItem("testing", JSON.stringify(currentLocal))
+
+        }
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>

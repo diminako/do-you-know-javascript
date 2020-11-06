@@ -16,10 +16,10 @@
     <nav class="navbar navbar-light bg-light">
         <button class="highScoreCl" id="highScoreId">High Score</button>
         <div class="inline">
-            Remaining Question Time: <span class="countDownCl" id="countDownId">60</span>
+            <h3>Do You Know JavaScript?!</h3>
         </div>
         <div class="inline">
-            Remaining Quiz Time: <span class="countDownQuizCl" id="countDownQuizId">600</span>
+            Remaining Quiz Time: <span class="countDownQuizCl" id="countDownQuizId">100</span>
         </div>
     </nav>
 
@@ -28,21 +28,28 @@
             <div class="row m-3" id="questionDiv">
                 <div class="col-md-12">
                     <div class="codeQuestion d-flex justify-content-center">
-                        <p id="questionSect">Challenge/Question</p>
+                        <p id="questionSect" class="text">
+                            Finish the quiz in the alloted time. <br> Wrong answers deduct 10 seconds from your time!
+                            <br> The
+                            time remaining will be your score.
+                            <br>
+                            Good Luck!
+                        </p>
                     </div>
                 </div>
             </div>
             <div class="row m-3" id="answersDiv">
                 <div class="col-md-12">
-                    <div class="row justify-content-center" id="listParent">
+                    <div class="row justify-content-center answersSect" id="listParent">
 
                     </div>
                 </div>
             </div>
             <div class="row m-3" id="correctDiv">
                 <div class="col-md-12 d-flex justify-content-center">
-                    <p id="rightWrong">correct/wrong splash</p>
-                    <button id="testBtn">Test</button>
+                    <p id="rightWrong">
+                        <button id="testBtn">Start Game!</button>
+                    </p>
                 </div>
             </div>
         </div>
