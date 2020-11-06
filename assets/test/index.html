@@ -8,30 +8,39 @@
 </head>
 
 <body>
-    <button onclick="clickBtn()">TEST</button>
+
+
+
+
+    <button id="submitBtn">TEST</button>
+
     <script>
+
+        var submitBtn = document.getElementById("submitBtn")
+
         function clickBtn() {
+
             console.log("clicked")
-            // add random num to array 
+
             var currentLocal = JSON.parse(localStorage.getItem("testing"))
+
             console.log(typeof currentLocal)
-            if (!currentLocal || typeof currentLocal !== "array") {
-                console.log(here)
+
+            if (!currentLocal) {
+
                 currentLocal = []
             }
+
+            //  Change this to the input value on the form.
             var randNum = Math.floor(Math.random() * 100)
+
             currentLocal.push(randNum)
 
             localStorage.setItem("testing", JSON.stringify(currentLocal))
 
         }
 
-
-
-
-
-
-
+        submitBtn.addEventListener("click", clickBtn);
 
 
     </script>
