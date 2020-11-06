@@ -83,7 +83,7 @@ testBtn.addEventListener("click", startGame);
 
 function clicker() {
     rightWrong.textContent = "Don't be wrong ;)";
-    questionSect.textContent = questObjArr[questionNum].question
+    questionSect.textContent = questObjArr[questionNum].question;
     listParent.innerHTML = "";
 
     for (i = 0; i < questObjArr[questionNum].answers.length; ++i) {
@@ -115,9 +115,9 @@ function answerInput(event) {
             secondsRemainQuiz -= 10;
             rightWrong.textContent = "WRONG!!!";
         }
-        if (questObjArr[questionNum].correctAnswer === parseInt(event.target.id)) {
-            rightWrong.textContent = "Correct!!! Keep it up!";
-        }
+        // if (questObjArr[questionNum].correctAnswer === parseInt(event.target.id)) {
+        //     rightWrong.textContent = "Correct!!! Keep it up!";
+        // }
         if (questObjArr.length - 1 !== questionNum) {
             questionNum++;
             clicker();
