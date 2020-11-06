@@ -6,16 +6,16 @@ var testBtn = document.getElementById("testBtn");
 var countDownQuizId = document.getElementById("countDownQuizId")
 var countDownId = document.getElementById("countDownId")
 var listParent = document.querySelector("#listParent")
-
 var secondsRemainQuiz = 100
-
+var questionNum = 0
+var quizInterval
 var questObjArr = [
     {
         question: "What is JavaScript?",
         answers: [
             "A fancier version of Java that uses scripts.",
             "An Object oriented programming language.",
-            "A replacement for HTML and CSS.",
+            "A replacement for HTML and CSS."
         ],
         correctAnswer: 1
     },
@@ -29,7 +29,7 @@ var questObjArr = [
         correctAnswer: 0
     },
     {
-        question: "What method do you use when you have an event listener inside a form?",
+        question: "What method do you use when you have an event listener on a button inside of a form?",
         answers: [
             "event.preventDefault();",
             "event.Splice();",
@@ -38,11 +38,11 @@ var questObjArr = [
         correctAnswer: 0
     },
     {
-        question: "What is JavaScript?",
+        question: "How long will this while loop run... while (i < 100) { do something }",
         answers: [
-            "A fancier version of Java that uses scripts.",
-            "A replacement for HTML and CSS.",
-            "An Object oriented programming language."
+            "As long as the i variable is above 100.",
+            "While i is equal to 1000.",
+            "As long as the i variable is 99 and below."
         ],
         correctAnswer: 2
     },
@@ -59,24 +59,40 @@ var questObjArr = [
         question: "What is an Array?",
         answers: [
             "A data structure.",
-            "The animal that killed Stever irwin.",
+            "Shorthand term for stingrays.",
             "An action that can be performed on objects."
         ],
         correctAnswer: 0
     },
     {
-        question: "What is the outcome of ",
+        question: "What does .prepend() do?",
         answers: [
-            "A fancier version of Java that uses scripts.",
-            "A replacement for HTML and CSS.",
-            "An Object oriented programming language."
+            "It pretends to be an actual HTML element.",
+            "It adds an HTML element.",
+            "It removes a target element."
         ],
         correctAnswer: 2
     },
 ]
 
-var questionNum = 0
-var quizInterval
+function startGame() {
+    clicker();
+    quizTimer();
+}
+testBtn.addEventListener("click", startGame);
+
+function clicker() {
+    rightWrong.textContent = "Don't be wrong ;)";
+    questionSect.textContent = questObjArr[questionNum].question
+    listParent.innerHTML = "";
+
+    for (i = 0; i < questObjArr[questionNum].answers.length; ++i) {
+        listItem = document.createElement('button');
+        listItem.innerHTML = questObjArr[questionNum].answers[i];
+        listItem.setAttribute("id", i);
+        listParent.appendChild(listItem);
+    }
+}
 
 function quizTimer() {
     quizInterval = setInterval(function () {
@@ -91,32 +107,16 @@ function quizTimer() {
     }, 1000)
 }
 
-function clicker() {
-    rightWrong.textContent = "TESTING TESTING";
-    questionSect.textContent = questObjArr[questionNum].question
-    listParent.innerHTML = "";
-
-    for (i = 0; i < questObjArr[questionNum].answers.length; ++i) {
-        listItem = document.createElement('button');
-        listItem.innerHTML = questObjArr[questionNum].answers[i];
-        listItem.setAttribute("id", i)
-        listParent.appendChild(listItem);
-    }
-}
-
-function startGame() {
-    clicker();
-    quizTimer();
-}
-testBtn.addEventListener("click", startGame);
-
 function answerInput(event) {
     if (event.target.matches("button")) {
         event.preventDefault();
-        console.log(event.target.id)
 
         if (questObjArr[questionNum].correctAnswer !== parseInt(event.target.id)) {
             secondsRemainQuiz -= 10;
+            rightWrong.textContent = "WRONG!!!";
+        }
+        if (questObjArr[questionNum].correctAnswer === parseInt(event.target.id)) {
+            rightWrong.textContent = "Correct!!! Keep it up!";
         }
         if (questObjArr.length - 1 !== questionNum) {
             questionNum++;
@@ -131,6 +131,7 @@ listParent.addEventListener("click", answerInput)
 //  Game Ends
 function endGame() {
     //  clear HTML to show different content
+    clearInterval(quizInterval)
     questionSect.textContent = "Congrats! You had " + secondsRemainQuiz + " seconds left!"
     rightWrong.textContent = "Congrats! You had " + secondsRemainQuiz + " seconds left!"
     listParent.prepend(listItem);
