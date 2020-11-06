@@ -1,6 +1,7 @@
 body {
     display: block;
     background-color: rgb(154, 201, 243);
+    font-size: larger;
 }
 
 nav {

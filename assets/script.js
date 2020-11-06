@@ -7,6 +7,7 @@ var countDownQuizId = document.getElementById("countDownQuizId")
 var countDownId = document.getElementById("countDownId")
 var listParent = document.querySelector("#listParent")
 var formControl = document.getElementById("formControl")
+var finalScore = document.getElementById("finalScore")
 var secondsRemainQuiz = 100
 var questionNum = 0
 var quizInterval
@@ -132,7 +133,7 @@ function endGame() {
     //  clear HTML to show different content
     clearInterval(quizInterval)
     questionSect.textContent = "Congrats! You had " + secondsRemainQuiz + " seconds left!"
-    rightWrong.textContent = "Congrats! You had " + secondsRemainQuiz + " seconds left!"
+    rightWrong.textContent = "You did it!!!"
     listParent.prepend(listItem);
     listParent.textContent = ""
     inputFormShow();
@@ -148,6 +149,7 @@ function outOfTime() {
 
 function inputFormShow() {
     formControl.setAttribute("class", "displaying")
+    finalScore.textContent = secondsRemainQuiz;
 }
 
 //  have a form for users initials
