@@ -168,27 +168,7 @@ formControl.addEventListener("submit", function (event) {
 })
 
 
-// function clickBtn(event) {
-//     event.preventDefault();
-//     console.log("clicked")
 
-//     var currentLocal = JSON.parse(localStorage.getItem("testing"))
-
-//     console.log(typeof currentLocal)
-
-//     if (!currentLocal) {
-
-//         currentLocal = []
-//     }
-
-//     //  Change this to the input value on the form.
-
-
-//     currentLocal.push(randNum)
-
-//     localStorage.setItem("testing", JSON.stringify(currentLocal))
-
-// }
 
 //  have a form for users initials
 //  submit button to save initials to variable for local storage
