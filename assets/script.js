@@ -142,7 +142,7 @@ function endGame() {
 function outOfTime() {
     clearInterval(quizInterval)
     questionSect.textContent = "DID NOT FINISH IN TIME!"
-    rightWrong.textContent = "DID NOT FINISH IN TIME!"
+    rightWrong.innerHTML = "<a href='index.html'><button>Start Over</button></a>"
     listParent.prepend(listItem);
     listParent.textContent = "DID NOT FINISH IN TIME!  You don't even qualify for a score."
 }
