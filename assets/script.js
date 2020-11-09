@@ -8,9 +8,11 @@ var countDownId = document.getElementById("countDownId")
 var listParent = document.querySelector("#listParent")
 var formControl = document.getElementById("formControl")
 var finalScore = document.getElementById("finalScore")
+// control the time
 var secondsRemainQuiz = 100
 var questionNum = 0
 var quizInterval
+// array of questions and answers
 var questObjArr = [
     {
         question: "What is JavaScript?",
@@ -77,12 +79,14 @@ var questObjArr = [
     },
 ]
 
+//  function to start game
 function startGame() {
     clicker();
     quizTimer();
 }
 testBtn.addEventListener("click", startGame);
 
+// function that controls the next question coming up and what goes in the elements.
 function clicker() {
     rightWrong.textContent = "Don't be wrong ;)";
     questionSect.textContent = questObjArr[questionNum].question;
@@ -97,6 +101,7 @@ function clicker() {
     }
 }
 
+// function to control full quick time
 function quizTimer() {
     quizInterval = setInterval(function () {
         secondsRemainQuiz--;
@@ -110,6 +115,7 @@ function quizTimer() {
     }, 1000)
 }
 
+// checks whether or not the answer was correct and what to do.
 function answerInput(event) {
     if (event.target.matches("button")) {
         event.preventDefault();
@@ -147,11 +153,13 @@ function outOfTime() {
     listParent.textContent = "DID NOT FINISH IN TIME!  You don't even qualify for a score."
 }
 
+//  control whether or not you can see the input form.
 function inputFormShow() {
     formControl.setAttribute("class", "displaying")
     finalScore.textContent = secondsRemainQuiz;
 }
 
+// controls localStorage of th high score input
 var initialsInput = document.getElementById("initialsInput")
 formControl.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -166,28 +174,6 @@ formControl.addEventListener("submit", function (event) {
 
     window.location = "./highscore.html";
 })
-
-
-
-
-//  have a form for users initials
-//  submit button to save initials to variable for local storage
-//  store the data as an objects
-//  read from local storage and convert local storage JSON  to store
-//  push object into an array
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
